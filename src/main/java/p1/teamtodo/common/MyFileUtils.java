@@ -45,9 +45,17 @@ public class MyFileUtils {
     }
 
     //파일명에서 확장자 추출
-    public String getExt(String fileName) {
-        int lastIdx = fileName.lastIndexOf(".");
-        return fileName.substring(lastIdx);
+    public static String getExt(String fileName) {
+        if (fileName == null || fileName.isEmpty()) {
+            throw new IllegalArgumentException("파일 이름이 비어 있거나 null입니다.");
+        }
+
+        int dotIndex = fileName.lastIndexOf(".");
+        if (dotIndex == -1 || dotIndex == fileName.length() - 1) {
+            throw new IllegalArgumentException("유효하지 않은 파일 이름입니다. 확장자가 없습니다.");
+        }
+
+        return fileName.substring(dotIndex + 1);
     }
 
     //랜덤파일명 생성

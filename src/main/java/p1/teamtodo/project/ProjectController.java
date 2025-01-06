@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import p1.teamtodo.common.ResponseResult;
 import p1.teamtodo.project.model.req.*;
+import p1.teamtodo.project.model.res.ProjectSearchUserGetRes;
 
 @RestController
 @RequestMapping("/project")
@@ -47,11 +48,16 @@ public class ProjectController {
         return projectService.getEditProject(projectNo, signedUserNo);
     }
 
+
+
+    //이걸 수정해야 함
+    // 닉네임 검색
     @GetMapping("search-user/{nickname}")
     @Operation(summary = "프로젝트 수정에서 추가할 인원 닉네임으로 검색하기")
-    public ResponseResult searchUser(@PathVariable String nickname) {
+    public ProjectSearchUserGetRes searchUser(@PathVariable String nickname) {
         return projectService.searchUserByNickname(nickname);
     }
+
 
     @PatchMapping
     @Operation(summary = "유저 잠금", description = "유저 잠금설정")

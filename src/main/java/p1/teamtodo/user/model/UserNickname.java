@@ -1,9 +1,5 @@
 package p1.teamtodo.user.model;
 
-import p1.teamtodo.common.ResponseResult;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class UserNickname {

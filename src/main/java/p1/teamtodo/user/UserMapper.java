@@ -36,7 +36,8 @@ public interface UserMapper {
 
     UserInfo selUserInfo(long targetUserNo);
 
-    ProjectSearchUserDto selUserByNickname(String nickname);
+    //닉네임으로 유저 검색
+    List<ProjectSearchUserDto> selUserByNickname(String nickname);
 
     List<ProjectEditUserDto> selProjectEditUser(long userNo);
 
